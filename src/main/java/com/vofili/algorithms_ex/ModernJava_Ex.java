@@ -1,13 +1,14 @@
 package com.vofili.algorithms_ex;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.function.*;
+
+import static com.vofili.Helpers.*;
+
 
 public class ModernJava_Ex {
 
-
+//Sort Function for Apples
     public void sortApples(List <Apple> inventory){
 
         Collections.sort(inventory, new Comparator<Apple>(){
@@ -16,31 +17,57 @@ public class ModernJava_Ex {
             }
         });
 
+    }
 
+    //Filter Function for Apple
 
+    public static List<Apple> filterHeavyApples(List<Apple> inventory){
+        List<Apple>result=new ArrayList<Apple>();
+        for(Apple item:inventory){
+            if(item.getWeight() > 55){
+                result.add(item);
+            }
+        }
+        return result;
+    }
+
+    static List<Apple> filterColor(List<Apple> inventory,Color color){
+        List<Apple> result = new ArrayList<Apple>();
+        for(Apple item :inventory) {
+            if (item.getColor().equals(color)) {
+                result.add(item);
+            }
+        }
+            return result;
 
     }
+
     public static void main(String[] args) {
 
         Apple a1,a2,a3,a4,a5;
-        a1 = new Apple();a2=new Apple(); a3 = new Apple(); a4 = new Apple(); a5 = new Apple();
-        a1.setWeight(70);
-        a2.setWeight(45);
-        a3.setWeight(80);
-        a4.setWeight(76);
-        a5.setWeight(35);
+        a1 = new Apple(Color.GREEN,45);a2=new Apple(Color.YELLOW,76); a3 = new Apple(Color.GREEN,87);
+        a4 = new Apple(Color.RED,85); a5 = new Apple(Color.PALE,12);
+
 
         List<Apple> basket = new ArrayList<Apple>();
         basket.add(a1);basket.add(a2);basket.add(a3);basket.add(a4);basket.add(a5);
-
-        for(var n:basket){
-            System.out.println("Basket item - N "+n);
+       var colortype = Color.GREEN;
+       printt("Filter Apple Basket for "+colortype+" Apples");
+       List<Apple> greenBasket = filterColor(basket,colortype);
+       for(Apple item:greenBasket){
+           printt(item.toString());
+       }
+        printt(" ");
+        printt("Filter Apple Basket Heavy 55kg Apples");
+        List<Apple> hvyBasket = filterHeavyApples(basket);
+        for(Apple item:hvyBasket){
+            printt(item.toString());
         }
-        ModernJava_Ex mex = new ModernJava_Ex();
-        mex.sortApples(basket);
 
-        for(var x: basket){
-            System.out.println("Basket Item N "+x);
-        }
+//        System.out.printf("Greetings '%20.5s'%n","Valentine");
+//        System.out.printf("%c%n",'l');
+//        System.out.printf("%5.2f%n",3.14892);
+//        System.out.printf(Locale.ITALY,"%,d %n",3250894);
+//        System.out.printf(Locale.US,"%,d %n",3250894);
     }
 }

@@ -2,17 +2,19 @@ package com.vofili.algorithms_ex;
 
 public class Apple {
 
-    String color;
+    Color color;
     Integer weight;
 
 
-    public Apple(String color, Integer weight) {
+
+
+    public Apple(Color color, Integer weight) {
         this.color = color;
         this.weight = weight;
     }
 
-    public Apple() {
-        this.color="Green";
+    public Apple(Color color) {
+        this.color=color;
     }
 
     public Integer getWeight() {
@@ -23,18 +25,18 @@ public class Apple {
         this.weight = weight;
     }
 
-    public String getColor() {
-        return color;
+    public Color getColor() {
+        return this.color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
     @Override
     public String toString() {
         return "Apple{" +
-                "color='" + color + '\'' +
+                "color='" + color.description + '\'' +
                 ", weight=" + weight +
                 '}';
     }
