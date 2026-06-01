@@ -8,7 +8,7 @@ import static com.vofili.Helpers.*;
 
 public class ModernJava_Ex {
 
-//Sort Function for Apples
+    //Sort Function for Apples
     public void sortApples(List <Apple> inventory){
 
         Collections.sort(inventory, new Comparator<Apple>(){
@@ -20,7 +20,6 @@ public class ModernJava_Ex {
     }
 
     //Filter Function for Apple
-
     public static List<Apple> filterHeavyApples(List<Apple> inventory){
         List<Apple>result=new ArrayList<Apple>();
         for(Apple item:inventory){
@@ -41,6 +40,8 @@ public class ModernJava_Ex {
             return result;
 
     }
+
+
 
     public static void main(String[] args) {
 

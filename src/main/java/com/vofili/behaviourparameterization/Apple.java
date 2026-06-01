@@ -5,7 +5,7 @@ public class Apple {
     private int id;
     private String name;
     private Color color;
-    float weight;
+    Float weight;
 
     public int getId() {
         return id;
@@ -27,11 +27,11 @@ public class Apple {
         return color;
     }
 
-    public float getWeight() {
+    public Float getWeight() {
         return weight;
     }
 
-    public void setWeight(float weight) {
+    public void setWeight(Float weight) {
         this.weight = weight;
     }
 
@@ -39,12 +39,18 @@ public class Apple {
         this.color = color;
     }
 
+    public Apple(String name, Color color, float weight) {
+        this.name = name;
+        this.color = color;
+        this.weight = weight;
+    }
+
     @Override
     public String toString() {
-        return "Apple{" +
+        return "\n Apple{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", color=" + color +
-                '}';
+                ", weight=" + weight + "}";
     }
 }
